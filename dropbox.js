@@ -98,6 +98,31 @@ angular.module('dropbox', [])
 
 
     /**
+     * HTTP POST Helper
+     */
+
+    function POST(url, data, params) {
+      var deferred = $q.defer()
+        , options = { params: params };
+
+      oauthHeader(options);
+
+      function success(response) {
+        console.log('POST', url, data, options, response.data);
+        deferred.resolve(response.data);
+      }
+
+      function failure(fault) {
+        console.log('POST', url, data, options, fault);
+        deferred.reject(fault);
+      }
+
+      $http.post(url, null, options).then(success, failure);
+      return deferred.promise;
+    }
+
+
+    /**
      * Configure the authorize popup window
      * Adapted from dropbox-js
      */
@@ -172,7 +197,6 @@ angular.module('dropbox', [])
                     + '&response_type=token'
                     + '&redirect_uri=' + redirectUri
 
-        // listen for message here
         function listener(event) {
           oauth = queryParamsFromUrl(event.data);
           self.oauth = oauth;
@@ -307,7 +331,13 @@ angular.module('dropbox', [])
       // delete
 
 
-      // copy
+      copy: function (from, to) {
+        return POST(urls.fileopsCopy, null, { 
+          root: 'auto',
+          to_path: to,
+          from_path: from
+        });
+      },
 
 
       // move

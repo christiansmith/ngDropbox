@@ -10,7 +10,7 @@ describe 'Dropbox', ->
   angular.module('dropbox')
     .value('DropboxClientId', '1234')
     .value('DropboxRedirectUri', 'https://SOMEHOST/callback.html')
-    
+
   beforeEach module 'dropbox'
 
   beforeEach inject ($injector) ->
@@ -146,6 +146,12 @@ describe 'Dropbox', ->
   describe 'delete', ->
 
   describe 'copy', ->
+
+    it 'should copy a file from one path to another', ->
+      url = "#{Dropbox.urls.fileopsCopy}?from_path=dir%2Ffile1.ext&root=auto&to_path=dir%2Ffile2.ext"
+      $httpBackend.expectPOST(url, undefined).respond null
+      Dropbox.copy 'dir/file1.ext', 'dir/file2.ext'
+      $httpBackend.flush()
 
   describe 'move', ->
 
