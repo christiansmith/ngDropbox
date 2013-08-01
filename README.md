@@ -32,7 +32,7 @@ Inject the service into your controllers and call any methods. All server method
 
 ### API
 
-* [Dropbox.accountInfo()](https://www.dropbox.com/developers/core/docs#account-info)
+* [<code>**Dropbox.accountInfo()**</code>](https://www.dropbox.com/developers/core/docs#account-info)
 * [Dropbox.userInfo()](https://www.dropbox.com/developers/core/docs#account-info) (alias Dropbox.accountInfo())
 * [Dropbox.readFile(path, params)](https://www.dropbox.com/developers/core/docs#files-GET)
 * writeFile
