@@ -360,7 +360,10 @@ angular.module('dropbox', [])
         });
       },
 
-      // reset
+
+      reset: function () {
+        oauth = {};
+      },
 
 
       setCredentials: function (credentials) {
