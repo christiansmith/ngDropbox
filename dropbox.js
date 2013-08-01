@@ -335,7 +335,9 @@ angular.module('dropbox', [])
       },
 
 
-      // unlink
+      unlink: function (path) {
+        return this.remove(path);
+      },
 
 
       delete: function (path) {

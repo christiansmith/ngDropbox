@@ -156,6 +156,12 @@ describe 'Dropbox', ->
 
   describe 'unlink', ->
 
+    it 'should remove a file', ->
+      url = "#{Dropbox.urls.fileopsDelete}?path=dir%2Ffile.ext&root=auto"
+      $httpBackend.expectPOST(url, undefined).respond null
+      Dropbox.unlink 'dir/file.ext'
+      $httpBackend.flush()
+
   describe 'delete', ->
 
     it 'should delete a file', ->
