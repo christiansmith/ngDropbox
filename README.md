@@ -15,9 +15,11 @@ This module is extracted from an AngularJS application. It mostly satisfies the 
 
 ## Authorization
 
-After you create an app in the [Dropbox App Console](https://www.dropbox.com/developers/apps), add an OAuth Redirect URI pointing to `https://<HOST>/components/ngDropbox/callback.html`. Then inform your Angular app of the App key:
+After you create an app in the [Dropbox App Console](https://www.dropbox.com/developers/apps), add an OAuth Redirect URI pointing to `https://<HOST>/components/ngDropbox/callback.html`. Then inform your Angular app of the App key and Redirect URI:
 
-    angular.module('myApp').value('DropboxClientId', <APP_KEY>);
+    angular.module('myApp')
+      .value('DropboxClientId', <APP_KEY>)
+      .value('DropboxRedirectUri', <REDIRECT_URI>)
 
 
 ## Development
