@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('dropbox', [])
-  .factory('Dropbox', function ($q, $http, $window, DropboxClientId) {
+  .factory('Dropbox', function ($q, $http, $window, DropboxClientId, DropboxRedirectUri) {
 
     /**
      * Credentials
@@ -165,8 +165,8 @@ angular.module('dropbox', [])
 
       authorize: function () {
         var self = this
-          , redirectUri = 'https://gapi-8340.onmodulus.net/dropbox.html'
-          , authUrl = 'https://www.dropbox.com/1/oauth2/authorize'
+          , redirectUri = DropboxRedirectUri
+          , authUrl = urls.authorize
                     + '?client_id=' + DropboxClientId
                  // + '&state=' + 
                     + '&response_type=token'

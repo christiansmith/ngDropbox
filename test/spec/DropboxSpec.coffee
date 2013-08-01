@@ -7,7 +7,10 @@ describe 'Dropbox', ->
     'X-Requested-With': 'XMLHttpRequest'
     'Authorization': 'Bearer g1bb3r1sh'
 
-  angular.module('dropbox').value('DropboxClientId', '1234')
+  angular.module('dropbox')
+    .value('DropboxClientId', '1234')
+    .value('DropboxRedirectUri', 'https://SOMEHOST/callback.html')
+    
   beforeEach module 'dropbox'
 
   beforeEach inject ($injector) ->
