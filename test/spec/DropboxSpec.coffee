@@ -111,7 +111,19 @@ describe 'Dropbox', ->
 
   describe 'revertFile', ->
 
+    it 'should restore a previous version', ->
+      url = "#{Dropbox.urls.restore}file1.txt?rev=1234"
+      $httpBackend.expectPOST(url, undefined).respond null
+      Dropbox.revertFile 'file1.txt', '1234'
+      $httpBackend.flush()  
+
   describe 'restore', ->
+
+    it 'should restore a previous version', ->
+      url = "#{Dropbox.urls.restore}file1.txt?rev=1234"
+      $httpBackend.expectPOST(url, undefined).respond null
+      Dropbox.restore 'file1.txt', '1234'
+      $httpBackend.flush()    
 
   describe 'findByName', ->
 

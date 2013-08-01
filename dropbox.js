@@ -39,7 +39,7 @@ angular.module('dropbox', [])
       metadata:            apiServer  + '/1/metadata/auto/',
       delta:               apiServer  + '/1/delta',
       revisions:           apiServer  + '/1/revisions/auto/',
-      restore:             apiServer  + '/1/restore/auto',
+      restore:             apiServer  + '/1/restore/auto/',
       search:              apiServer  + '/1/search/auto/',
       shares:              apiServer  + '/1/shares/auto',
       media:               apiServer  + '/1/media/auto',
@@ -185,6 +185,7 @@ angular.module('dropbox', [])
 
     return {
       
+      
       urls: urls,                       // exposed for testing
 
 
@@ -288,10 +289,14 @@ angular.module('dropbox', [])
       // readThumbnail
 
 
-      // revertFile
+      revertFile: function (path, rev) {
+        return POST(urls.restore + path, null, { rev: rev });
+      },
 
 
-      // restore
+      restore: function (path, rev) {
+        return this.revertFile(path, rev);
+      },
 
 
       findByName: function (path, pattern, params) {
