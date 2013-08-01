@@ -327,17 +327,19 @@ angular.module('dropbox', [])
       },
 
 
-      // remove
+      remove: function (path) {
+        return POST(urls.fileopsDelete, null, {
+          root: 'auto',
+          path: path
+        });
+      },
 
 
       // unlink
 
 
       delete: function (path) {
-        return POST(urls.fileopsDelete, null, {
-          root: 'auto',
-          path: path
-        });
+        return this.remove(path);
       },
 
 
