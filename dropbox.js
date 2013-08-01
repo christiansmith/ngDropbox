@@ -319,7 +319,12 @@ angular.module('dropbox', [])
       // delta
 
 
-      // mkdir
+      mkdir: function (path) {
+        return POST(urls.fileopsCreateFolder, null, {
+          root: 'auto',
+          path: path
+        });
+      },
 
 
       // remove

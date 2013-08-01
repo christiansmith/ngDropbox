@@ -139,6 +139,13 @@ describe 'Dropbox', ->
 
   describe 'mkdir', ->
 
+    it 'should create a folder', ->
+      url = "#{Dropbox.urls.fileopsCreateFolder}?path=folder1&root=auto"
+      $httpBackend.expectPOST(url, undefined).respond null
+      Dropbox.mkdir 'folder1'
+      $httpBackend.flush()        
+
+
   describe 'remove', ->
 
   describe 'unlink', ->
