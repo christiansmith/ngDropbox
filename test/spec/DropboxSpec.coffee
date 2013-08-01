@@ -161,6 +161,12 @@ describe 'Dropbox', ->
 
   describe 'move', ->
 
+    it 'should move a file', ->
+      url = "#{Dropbox.urls.fileopsMove}?from_path=dir%2Ffile1.ext&root=auto&to_path=dir%2Ffile2.ext"
+      $httpBackend.expectPOST(url, undefined).respond null
+      Dropbox.move 'dir/file1.ext', 'dir/file2.ext'
+      $httpBackend.flush()      
+
   describe 'reset', ->
 
   describe 'setCredentials', ->

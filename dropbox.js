@@ -345,8 +345,13 @@ angular.module('dropbox', [])
       },
 
 
-      // move
-
+      move: function (from, to) {
+        return POST(urls.fileopsMove, null, { 
+          root: 'auto',
+          to_path: to,
+          from_path: from
+        });
+      },
 
       // reset
 
