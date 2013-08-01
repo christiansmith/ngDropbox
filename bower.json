@@ -9,7 +9,6 @@
     "karma.conf.js"
   ],
   "devDependencies": {
-    "chai": "~1.7.2",
     "angular": "~1.0.7",
     "angular-mocks": "~1.0.7",
     "angular-unstable": "~1.1.5",
