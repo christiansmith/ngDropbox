@@ -22,6 +22,24 @@ After you create an app in the [Dropbox App Console](https://www.dropbox.com/dev
       .value('DropboxRedirectUri', <REDIRECT_URI>)
 
 
+## TODO
+
+Methods yet to be implemented (as of 8/1/2013).
+
+* signOut/signOff
+* writeFile
+* resumableUpload
+* makeUrl
+* readThumbnail
+* makeCopyReference/copyRef
+* pullChanges/delta
+
+Other
+
+* Support redirect and other authentication methods in addition to browser popup
+* Test in multiple browsers
+
+
 ## Development
 
 Installing the Karma test runner with `npm install karma -g`, then run the tests with `karma start`.

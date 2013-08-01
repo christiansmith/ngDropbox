@@ -185,7 +185,7 @@ angular.module('dropbox', [])
 
     return {
       
-      
+
       urls: urls,                       // exposed for testing
 
 
@@ -221,13 +221,20 @@ angular.module('dropbox', [])
         return (oauth.access_token) ? true : false
       },
 
+
       // signOut
+
 
       // signOff
 
 
       accountInfo: function () {
         return GET(urls.accountInfo);
+      },
+
+
+      userInfo: function () {
+        return this.accountInfo();
       },
 
 
