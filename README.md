@@ -21,6 +21,57 @@ After you create an app in the [Dropbox App Console](https://www.dropbox.com/dev
       .value('DropboxClientId', <APP_KEY>)
       .value('DropboxRedirectUri', <REDIRECT_URI>)
 
+## Usage
+
+Inject the service into your controllers and call any methods. All server methods return promises.
+
+    angular.module('myApp')
+      .controller('DropboxCtrl', function ($scope, Dropbox) {
+        $scope.accountInfo = Dropbox.accountInfo();
+      });
+
+Methods
+
+    Dropbox.accountInfo()
+    // alias: Dropbox.userInfo()
+    
+    Dropbox.readFile(path, params)
+    
+    Dropbox.stat(path, params)
+    // alias: Dropbox.metadata(path, params)
+
+    Dropbox.readdir(path, params)
+
+    // alias: makeUrl 
+
+    Dropbox.history(path, params)
+    // alias: Dropbox.revisions(path, params)
+
+    Dropbox.thumbnailUrl(path, params)
+
+    // alias: readThumbnail
+
+    Dropbox.revertFile(path, rev)
+    // alias: Dropbox.restore(path, rev)
+
+    Dropbox.findByName(path, pattern, params)
+    // alias: Dropbox.search(path, pattern, params)
+
+    // alias: makeCopyReference/copyRef
+
+    // alias: pullChanges/delta
+
+    Dropbox.mkdir(path)
+
+    Dropbox.remove(path)
+    // alias: Dropbox.unlink(path), Dropbox.delete(path)
+
+    Dropbox.copy(from, to)
+
+    Dropbox.move(from, to)
+
+
+
 
 ## TODO
 
