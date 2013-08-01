@@ -1,6 +1,6 @@
 # ngDropbox
 
-ngDropbox is a Dropbox API Client for AngularJS adapted from [dropbox-js](https://github.com/dropbox/dropbox-js). 
+ngDropbox is a [Dropbox Core API](https://www.dropbox.com/developers/core/docs) Client for AngularJS adapted from [dropbox-js](https://github.com/dropbox/dropbox-js). 
 
 
 ## Status
@@ -30,45 +30,32 @@ Inject the service into your controllers and call any methods. All server method
         $scope.accountInfo = Dropbox.accountInfo();
       });
 
-Methods
+### API
 
-    Dropbox.accountInfo()
-    // alias: Dropbox.userInfo()
-    
-    Dropbox.readFile(path, params)
-    
-    Dropbox.stat(path, params)
-    // alias: Dropbox.metadata(path, params)
-
-    Dropbox.readdir(path, params)
-
-    // alias: makeUrl 
-
-    Dropbox.history(path, params)
-    // alias: Dropbox.revisions(path, params)
-
-    Dropbox.thumbnailUrl(path, params)
-
-    // alias: readThumbnail
-
-    Dropbox.revertFile(path, rev)
-    // alias: Dropbox.restore(path, rev)
-
-    Dropbox.findByName(path, pattern, params)
-    // alias: Dropbox.search(path, pattern, params)
-
-    // alias: makeCopyReference/copyRef
-
-    // alias: pullChanges/delta
-
-    Dropbox.mkdir(path)
-
-    Dropbox.remove(path)
-    // alias: Dropbox.unlink(path), Dropbox.delete(path)
-
-    Dropbox.copy(from, to)
-
-    Dropbox.move(from, to)
+* [Dropbox.accountInfo()](https://www.dropbox.com/developers/core/docs#account-info)
+* [Dropbox.userInfo()](https://www.dropbox.com/developers/core/docs#account-info) (alias Dropbox.accountInfo())
+* [Dropbox.readFile(path, params)](https://www.dropbox.com/developers/core/docs#files-GET)
+* writeFile
+* [Dropbox.stat(path, params)](https://www.dropbox.com/developers/core/docs#metadata)
+* [Dropbox.metadata(path, params)](https://www.dropbox.com/developers/core/docs#metadata) (alias Dropbox.stat(path, params))
+* [Dropbox.readdir(path, params)](https://www.dropbox.com/developers/core/docs#metadata)
+* makeUrl 
+* [Dropbox.history(path, params)](https://www.dropbox.com/developers/core/docs#revisions)
+* [Dropbox.revisions(path, params)](https://www.dropbox.com/developers/core/docs#revisions) (alias Dropbox.history(path, params))
+* [Dropbox.thumbnailUrl(path, params)]()
+* readThumbnail
+* [Dropbox.revertFile(path, rev)]()
+* [Dropbox.restore(path, rev)]()
+* [Dropbox.findByName(path, pattern, params)]()
+* [Dropbox.search(path, pattern, params)]()
+* makeCopyReference/copyRef
+* pullChanges/delta
+* [Dropbox.mkdir(path)](https://www.dropbox.com/developers/core/docs#fileops-create-folder)
+* [Dropbox.remove(path)](https://www.dropbox.com/developers/core/docs#fileops-delete)
+* [Dropbox.unlink(path)](https://www.dropbox.com/developers/core/docs#fileops-delete) (alias Dropbox.remove(path))
+* [Dropbox.delete(path)](https://www.dropbox.com/developers/core/docs#fileops-delete) (alias Dropbox.remove(path))
+* [Dropbox.copy(from, to)](https://www.dropbox.com/developers/core/docs#fileops-copy)
+* [Dropbox.move(from, to)](https://www.dropbox.com/developers/core/docs#fileops-move)
 
 
 
@@ -89,6 +76,7 @@ Other
 
 * Support redirect and other authentication methods in addition to browser popup
 * Test in multiple browsers
+* Test error cases
 
 
 ## Development
