@@ -33,29 +33,29 @@ Inject the service into your controllers and call any methods. All server method
 ### API
 
 * [**Dropbox.accountInfo()**](https://www.dropbox.com/developers/core/docs#account-info)
-* [Dropbox.userInfo()](https://www.dropbox.com/developers/core/docs#account-info) (alias Dropbox.accountInfo())
-* [Dropbox.readFile(path, params)](https://www.dropbox.com/developers/core/docs#files-GET)
+* [**Dropbox.userInfo()**](https://www.dropbox.com/developers/core/docs#account-info) (alias Dropbox.accountInfo())
+* [**Dropbox.readFile(path, params)**](https://www.dropbox.com/developers/core/docs#files-GET)
 * writeFile
-* [Dropbox.stat(path, params)](https://www.dropbox.com/developers/core/docs#metadata)
-* [Dropbox.metadata(path, params)](https://www.dropbox.com/developers/core/docs#metadata) (alias Dropbox.stat(path, params))
-* [Dropbox.readdir(path, params)](https://www.dropbox.com/developers/core/docs#metadata)
+* [**Dropbox.stat(path, params)**](https://www.dropbox.com/developers/core/docs#metadata)
+* [**Dropbox.metadata(path, params)**](https://www.dropbox.com/developers/core/docs#metadata) (alias Dropbox.stat(path, params))
+* [**Dropbox.readdir(path, params)**](https://www.dropbox.com/developers/core/docs#metadata)
 * makeUrl 
-* [Dropbox.history(path, params)](https://www.dropbox.com/developers/core/docs#revisions)
-* [Dropbox.revisions(path, params)](https://www.dropbox.com/developers/core/docs#revisions) (alias Dropbox.history(path, params))
-* [Dropbox.thumbnailUrl(path, params)]()
+* [**Dropbox.history(path, params)**](https://www.dropbox.com/developers/core/docs#revisions)
+* [**Dropbox.revisions(path, params)**](https://www.dropbox.com/developers/core/docs#revisions) (alias Dropbox.history(path, params))
+* [**Dropbox.thumbnailUrl(path, params)**]()
 * readThumbnail
-* [Dropbox.revertFile(path, rev)]()
-* [Dropbox.restore(path, rev)]()
-* [Dropbox.findByName(path, pattern, params)]()
-* [Dropbox.search(path, pattern, params)]()
+* [**Dropbox.revertFile(path, rev)**]()
+* [**Dropbox.restore(path, rev)**]()
+* [**Dropbox.findByName(path, pattern, params)**]()
+* [**Dropbox.search(path, pattern, params)**]()
 * makeCopyReference/copyRef
 * pullChanges/delta
-* [Dropbox.mkdir(path)](https://www.dropbox.com/developers/core/docs#fileops-create-folder)
-* [Dropbox.remove(path)](https://www.dropbox.com/developers/core/docs#fileops-delete)
-* [Dropbox.unlink(path)](https://www.dropbox.com/developers/core/docs#fileops-delete) (alias Dropbox.remove(path))
-* [Dropbox.delete(path)](https://www.dropbox.com/developers/core/docs#fileops-delete) (alias Dropbox.remove(path))
-* [Dropbox.copy(from, to)](https://www.dropbox.com/developers/core/docs#fileops-copy)
-* [Dropbox.move(from, to)](https://www.dropbox.com/developers/core/docs#fileops-move)
+* [**Dropbox.mkdir(path)**](https://www.dropbox.com/developers/core/docs#fileops-create-folder)
+* [**Dropbox.remove(path)**](https://www.dropbox.com/developers/core/docs#fileops-delete)
+* [**Dropbox.unlink(path)**](https://www.dropbox.com/developers/core/docs#fileops-delete) (alias Dropbox.remove(path))
+* [**Dropbox.delete(path)**](https://www.dropbox.com/developers/core/docs#fileops-delete) (alias Dropbox.remove(path))
+* [**Dropbox.copy(from, to)**](https://www.dropbox.com/developers/core/docs#fileops-copy)
+* [**Dropbox.move(from, to)**](https://www.dropbox.com/developers/core/docs#fileops-move)
 
 
 
