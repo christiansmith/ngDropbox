@@ -328,7 +328,12 @@ angular.module('dropbox', [])
       // unlink
 
 
-      // delete
+      delete: function (path) {
+        return POST(urls.fileopsDelete, null, {
+          root: 'auto',
+          path: path
+        });
+      },
 
 
       copy: function (from, to) {
