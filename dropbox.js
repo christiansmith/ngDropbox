@@ -72,29 +72,40 @@ angular.module('dropbox', [])
 
 
     /**
-     * HTTP GET Helper
+     * HTTP Request Helper
      */
 
-    function GET(url, params) {
-      var deferred = $q.defer()
-        , options  = { params: params };
+    function request(config) {
+      var deferred = $q.defer();
 
-      oauthHeader(options);
-      // oauthParams(options);
+      oauthHeader(config);
 
       function success(response) {
-        console.log(url, options, response.data)
-        deferred.resolve(response.data); 
+        console.log(config, response.data);
+        deferred.resolve(response.data);
       }
 
       function failure(fault) {
-        console.log(url, options, fault)
-        deferred.reject(fault); 
+        console.log(config, fault);
+        deferred.reject(fault);
       }
 
-      $http.get(url, options).then(success, failure);
+      $http(config).then(success, failure);
       return deferred.promise;
-    }  
+    }
+
+
+    /**
+     * HTTP GET Helper
+     */
+    
+    function GET(url, params) {
+      return request({
+        method: 'GET',
+        url: url,
+        params: params
+      });
+    }
 
 
     /**
@@ -102,23 +113,12 @@ angular.module('dropbox', [])
      */
 
     function POST(url, data, params) {
-      var deferred = $q.defer()
-        , options = { params: params };
-
-      oauthHeader(options);
-
-      function success(response) {
-        console.log('POST', url, data, options, response.data);
-        deferred.resolve(response.data);
-      }
-
-      function failure(fault) {
-        console.log('POST', url, data, options, fault);
-        deferred.reject(fault);
-      }
-
-      $http.post(url, null, options).then(success, failure);
-      return deferred.promise;
+      return request({
+        method: 'POST',
+        url: url,
+        data: data,
+        params: params
+      });
     }
 
 
