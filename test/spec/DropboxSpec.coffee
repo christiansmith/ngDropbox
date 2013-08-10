@@ -2,16 +2,20 @@ describe 'Dropbox', ->
 
   {Dropbox,$httpBackend,credentials} = {}
   
+
   headers = 
     'Accept': 'application/json, text/plain, */*'
     'X-Requested-With': 'XMLHttpRequest'
     'Authorization': 'Bearer g1bb3r1sh'
 
+
   angular.module('dropbox')
     .value('DropboxClientId', '1234')
     .value('DropboxRedirectUri', 'https://SOMEHOST/callback.html')
 
+
   beforeEach module 'dropbox'
+
 
   beforeEach inject ($injector) ->
     Dropbox      = $injector.get 'Dropbox'
@@ -19,19 +23,24 @@ describe 'Dropbox', ->
     credentials = access_token: 'g1bb3r1sh'
     Dropbox.setCredentials credentials
 
+
   afterEach ->
     $httpBackend.verifyNoOutstandingExpectation()
     $httpBackend.verifyNoOutstandingRequest()
 
+
   describe 'authorize', ->
     # TEST THE MESSAGE EVENT ON WINDOW
+
 
   describe 'credentials', ->
 
     it 'should return OAuth credentials', ->
       expect(Dropbox.credentials()).toEqual(credentials)
 
+
   describe 'authenticate', ->
+
 
   describe 'isAuthenticated', ->
 
@@ -41,7 +50,9 @@ describe 'Dropbox', ->
 
   describe 'signOut', ->
 
+
   describe 'signOff', ->
+
 
   describe 'accountInfo', ->
     
@@ -49,6 +60,7 @@ describe 'Dropbox', ->
       $httpBackend.expectGET("#{Dropbox.urls.accountInfo}").respond(null)
       Dropbox.accountInfo()
       $httpBackend.flush()
+
 
   describe 'readFile', ->
 
@@ -58,11 +70,22 @@ describe 'Dropbox', ->
       Dropbox.readFile 'directory/name.ext'
       $httpBackend.flush()
 
+
   describe 'writeFile', ->
+
+    it 'should post file contents', ->
+      url = "#{Dropbox.urls.putFile}directory/file.txt"
+      content = "contents of file"
+      $httpBackend.expectPOST(url, content, headers).respond null
+      Dropbox.writeFile 'directory/file.txt', content
+      $httpBackend.flush()
+
 
   describe 'resumableUploadStep', ->
 
+
   describe 'resumableUploadFinish', ->
+
 
   describe 'stat', ->
 
@@ -72,8 +95,10 @@ describe 'Dropbox', ->
       Dropbox.stat 'directory/name.ext'
       $httpBackend.flush()
 
+
   describe 'readdir', ->
     # HOW TO TEST THIS?
+
 
   describe 'metadata', ->
 
@@ -83,7 +108,9 @@ describe 'Dropbox', ->
       Dropbox.metadata 'directory/name.ext'
       $httpBackend.flush()
 
+
   describe 'makeUrl', ->
+
 
   describe 'history', ->
 
@@ -93,6 +120,7 @@ describe 'Dropbox', ->
       Dropbox.history 'directory/name.ext'
       $httpBackend.flush()
 
+
   describe 'revisions', ->
 
     it 'should get the revisions for a path', ->
@@ -101,21 +129,26 @@ describe 'Dropbox', ->
       Dropbox.revisions 'directory/name.ext'
       $httpBackend.flush()
 
+
   describe 'thumbnailUrl', ->
 
     it 'should make a signed url for a thumbnail', ->
       url = "#{Dropbox.urls.thumbnails}directory/image.jpeg?format=jpeg&size=m&access_token=#{credentials.access_token}"
       expect(Dropbox.thumbnailUrl('directory/image.jpeg')).toEqual(url)
 
+
   describe 'readThumbnail', ->
 
+
   describe 'revertFile', ->
+
 
     it 'should restore a previous version', ->
       url = "#{Dropbox.urls.restore}file1.txt?rev=1234"
       $httpBackend.expectPOST(url, undefined).respond null
       Dropbox.revertFile 'file1.txt', '1234'
       $httpBackend.flush()  
+
 
   describe 'restore', ->
 
@@ -125,6 +158,7 @@ describe 'Dropbox', ->
       Dropbox.restore 'file1.txt', '1234'
       $httpBackend.flush()    
 
+
   describe 'findByName', ->
 
     it 'should get query a path', ->
@@ -132,6 +166,7 @@ describe 'Dropbox', ->
       $httpBackend.expectGET(url, headers).respond null
       Dropbox.findByName 'directory/name.ext', 'terms'
       $httpBackend.flush()
+
 
   describe 'search', ->
 
@@ -141,13 +176,18 @@ describe 'Dropbox', ->
       Dropbox.search 'directory/name.ext', 'terms'
       $httpBackend.flush()
 
+
   describe 'makeCopyReference', ->
+
 
   describe 'copyRef', ->
 
+
   describe 'pullChanges', ->
 
+
   describe 'delta', ->
+
 
   describe 'mkdir', ->
 
@@ -166,6 +206,7 @@ describe 'Dropbox', ->
       Dropbox.remove 'dir/file.ext'
       $httpBackend.flush()  
 
+
   describe 'unlink', ->
 
     it 'should remove a file', ->
@@ -173,6 +214,7 @@ describe 'Dropbox', ->
       $httpBackend.expectPOST(url, undefined).respond null
       Dropbox.unlink 'dir/file.ext'
       $httpBackend.flush()
+
 
   describe 'delete', ->
 
@@ -182,6 +224,7 @@ describe 'Dropbox', ->
       Dropbox.delete 'dir/file.ext'
       $httpBackend.flush()  
 
+
   describe 'copy', ->
 
     it 'should copy a file from one path to another', ->
@@ -189,6 +232,7 @@ describe 'Dropbox', ->
       $httpBackend.expectPOST(url, undefined).respond null
       Dropbox.copy 'dir/file1.ext', 'dir/file2.ext'
       $httpBackend.flush()
+
 
   describe 'move', ->
 
@@ -198,9 +242,12 @@ describe 'Dropbox', ->
       Dropbox.move 'dir/file1.ext', 'dir/file2.ext'
       $httpBackend.flush()      
 
+
   describe 'reset', ->
 
+
   describe 'setCredentials', ->
+
 
   describe 'appHash', ->
 

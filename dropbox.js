@@ -243,6 +243,19 @@ angular.module('dropbox', [])
       },
 
 
+      // writeFile
+      writeFile: function (path, content, params) {
+        return request({
+          method: 'POST',
+          url: urls.putFile + path,
+          data: content,
+          headers: { 'Content-Type': undefined },
+          transformRequest: angular.identity,
+          params: params
+        });
+      },
+
+
       stat: function (path, params) {
         return GET(urls.metadata + path, params);
       },
