@@ -189,7 +189,12 @@ angular.module('dropbox', [])
       urls: urls,                       // exposed for testing
 
 
-      authorize: function () {
+      credentials: function () {
+        return oauth;
+      },
+
+
+      authenticate: function () {
         var self = this
           , redirectUri = DropboxRedirectUri
           , authUrl = urls.authorize
@@ -207,14 +212,6 @@ angular.module('dropbox', [])
         $window.addEventListener('message', listener, false);
         $window.open(authUrl,'_dropboxOauthSigninWindow', popupSize(700, 500));
       },
-
-
-      credentials: function () {
-        return oauth;
-      },
-
-
-      // authenticate
 
 
       isAuthenticated: function () {
