@@ -5,29 +5,49 @@ ngDropbox is a [Dropbox Core API](https://www.dropbox.com/developers/core/docs) 
 
 ## Status
 
-This module is extracted from an AngularJS application. It mostly satisfies the needs of that project in this incomplete state, but I'm actively working (as of 8/1/2013) to implement the rest of the API. Peer review and bug fixes are much appreciated, please communicate via issues. Thanks in advance!
+This module is extracted from an AngularJS application. It mostly satisfies the needs of that project but I'm working (as of 8/10/2013) in my spare time to implement the rest of the API. If you want to use ngDropbox but something is missing or doesn't work as expected, please submit an issue. Thanks in advance!
 
 
 ## Install
 
-    bower install git@github.com:christiansmith/ngDropbox.git --save
+[Bower](http://bower.io/) is the quickest way to include ngDropbox in your project.
 
+    $ bower install git@github.com:christiansmith/ngDropbox.git --save
 
-## Authorization
+    <script src="components/ngDropbox/dropbox.js"></script>
 
-After you create an app in the [Dropbox App Console](https://www.dropbox.com/developers/apps), add an OAuth Redirect URI pointing to `https://<HOST>/components/ngDropbox/callback.html`. Then inform your Angular app of the App key and Redirect URI:
+If you don't use Bower, just download `dropbox.js` into your scripts directory.
 
-    angular.module('myApp')
-      .value('DropboxClientId', <APP_KEY>)
-      .value('DropboxRedirectUri', <REDIRECT_URI>)
+    $ curl -O https://raw.github.com/christiansmith/ngDropbox/master/dropbox.js
+
+    <script src="your/js/path/dropbox.js"></script>
 
 ## Usage
 
-Inject the service into your controllers and call any methods. All server methods return promises.
+After you create an app in the [Dropbox App Console](https://www.dropbox.com/developers/apps), add an OAuth Redirect URI pointing to `https://<HOST>/components/ngDropbox/callback.html`.
 
-    angular.module('myApp')
+In your AngularJS app, load the module. Inform your app of the App key and Redirect URI, then inject the service into your controllers and start making API calls. All methods that communicate with the API return promises.
+
+    // load the module
+    angular.module('myApp', ['dropbox'])
+
+      // add your Dropbox credentials
+      .value('DropboxClientId', <APP_KEY>)
+      .value('DropboxRedirectUri', <REDIRECT_URI>)
+
+      // inject the service
       .controller('DropboxCtrl', function ($scope, Dropbox) {
+        
+        // assign a promise to scope
         $scope.accountInfo = Dropbox.accountInfo();
+
+        // or use callbacks
+        Dropbox.copy('dir/image1.jpg', 'dir/image2.jpg').then(function (res) {
+          Dropbox.move('dir/image1.jpg', 'dir/image.jpg').then(function (res) {
+            $scope.photos = Dropbox.stat('dir');
+          });
+        });
+
       });
 
 ### API
@@ -35,7 +55,7 @@ Inject the service into your controllers and call any methods. All server method
 * [**Dropbox.accountInfo()**](https://www.dropbox.com/developers/core/docs#account-info)
 * [**Dropbox.userInfo()**](https://www.dropbox.com/developers/core/docs#account-info) (alias Dropbox.accountInfo())
 * [**Dropbox.readFile(path, params)**](https://www.dropbox.com/developers/core/docs#files-GET)
-* writeFile
+* [**Dropbox.writeFile(path, content, params)**](https://www.dropbox.com/developers/core/docs#files_put)
 * [**Dropbox.stat(path, params)**](https://www.dropbox.com/developers/core/docs#metadata)
 * [**Dropbox.metadata(path, params)**](https://www.dropbox.com/developers/core/docs#metadata) (alias Dropbox.stat(path, params))
 * [**Dropbox.readdir(path, params)**](https://www.dropbox.com/developers/core/docs#metadata)

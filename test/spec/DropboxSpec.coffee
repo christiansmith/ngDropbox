@@ -73,7 +73,7 @@ describe 'Dropbox', ->
 
   describe 'writeFile', ->
 
-    it 'should post file contents', ->
+    it 'should write string data', ->
       url = "#{Dropbox.urls.putFile}directory/file.txt"
       content = "contents of file"
       $httpBackend.expectPOST(url, content, headers).respond null
