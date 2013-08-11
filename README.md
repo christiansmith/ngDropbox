@@ -22,6 +22,7 @@ If you don't use Bower, just download `dropbox.js` into your scripts directory.
 
     <script src="your/js/path/dropbox.js"></script>
 
+
 ## Usage
 
 After you create an app in the [Dropbox App Console](https://www.dropbox.com/developers/apps), add an OAuth Redirect URI pointing to `https://<HOST>/components/ngDropbox/callback.html`.
