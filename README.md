@@ -1,6 +1,6 @@
 # ngDropbox
 
-ngDropbox is a [Dropbox Core API](https://www.dropbox.com/developers/core/docs) Client for AngularJS adapted from [dropbox-js](https://github.com/dropbox/dropbox-js). 
+ngDropbox is a [Dropbox Core API](https://www.dropbox.com/developers/core/docs) Client for AngularJS adapted from [dropbox-js](https://github.com/dropbox/dropbox-js). It should be familiar to dropbox-js users as well as idiomatic to AngularJS.
 
 
 ## Status

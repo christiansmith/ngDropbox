@@ -80,6 +80,12 @@ describe 'Dropbox', ->
       Dropbox.writeFile 'directory/file.txt', content
       $httpBackend.flush()
 
+    it 'should write ArrayBuffer data'
+    it 'should write ArrayBuffer view data'
+    it 'should write Blob data'
+    it 'should write File data'
+    it 'should write Buffer data'
+
 
   describe 'resumableUploadStep', ->
 

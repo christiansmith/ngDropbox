@@ -240,7 +240,6 @@ angular.module('dropbox', [])
       },
 
 
-      // writeFile
       writeFile: function (path, content, params) {
         return request({
           method: 'POST',
