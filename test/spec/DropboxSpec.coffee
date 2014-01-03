@@ -41,6 +41,9 @@ describe 'Dropbox', ->
 
   describe 'authenticate', ->
 
+    it 'should return a promise', ->
+      expect(typeof Dropbox.authenticate().then).toEqual 'function'
+
 
   describe 'isAuthenticated', ->
 

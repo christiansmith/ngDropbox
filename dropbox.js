@@ -196,6 +196,7 @@ angular.module('dropbox', [])
 
       authenticate: function () {
         var self = this
+          , deferred = $q.defer()
           , redirectUri = DropboxRedirectUri
           , authUrl = urls.authorize
                     + '?client_id=' + DropboxClientId
@@ -206,11 +207,14 @@ angular.module('dropbox', [])
         function listener(event) {
           oauth = queryParamsFromUrl(event.data);
           self.oauth = oauth;
+          deferred.resolve(oauth);
           console.log('Dropbox', self);
         }
 
         $window.addEventListener('message', listener, false);
         $window.open(authUrl,'_dropboxOauthSigninWindow', popupSize(700, 500));
+
+        return deferred.promise;
       },
 
 
