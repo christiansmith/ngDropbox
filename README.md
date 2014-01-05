@@ -5,7 +5,7 @@ ngDropbox is a [Dropbox Core API](https://www.dropbox.com/developers/core/docs) 
 
 ## Status
 
-This module is extracted from an AngularJS application. It mostly satisfies the needs of that project but I'm working (as of 8/10/2013) in my spare time to implement the rest of the API. If you want to use ngDropbox but something is missing or doesn't work as expected, please submit an issue. Thanks in advance!
+This module is extracted from an AngularJS application. It mostly satisfies the needs of that project but I'm working (as of 1/4/2014) in my spare time to implement the rest of the API. If you want to use ngDropbox but something is missing or doesn't work as expected, please submit an issue or get in touch to pair program. Thanks in advance!
 
 
 ## Install
