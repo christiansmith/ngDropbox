@@ -217,7 +217,6 @@ angular.module('dropbox', [])
           authenticate: function () {
             var self = this
               , deferred = $q.defer()
-              , redirectUri = redirectUri
               , authUrl = urls.authorize
                         + '?client_id=' + clientId
                      // + '&state=' +
