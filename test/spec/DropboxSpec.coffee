@@ -1,9 +1,9 @@
 describe 'Dropbox', ->
 
   {Dropbox,$httpBackend,credentials} = {}
-  
 
-  headers = 
+
+  headers =
     'Accept': 'application/json, text/plain, */*'
     'X-Requested-With': 'XMLHttpRequest'
     'Authorization': 'Bearer g1bb3r1sh'
@@ -58,7 +58,7 @@ describe 'Dropbox', ->
 
 
   describe 'accountInfo', ->
-    
+
     it 'should get account info', ->
       $httpBackend.expectGET("#{Dropbox.urls.accountInfo}").respond(null)
       Dropbox.accountInfo()
@@ -156,7 +156,7 @@ describe 'Dropbox', ->
       url = "#{Dropbox.urls.restore}file1.txt?rev=1234"
       $httpBackend.expectPOST(url, undefined).respond null
       Dropbox.revertFile 'file1.txt', '1234'
-      $httpBackend.flush()  
+      $httpBackend.flush()
 
 
   describe 'restore', ->
@@ -165,7 +165,7 @@ describe 'Dropbox', ->
       url = "#{Dropbox.urls.restore}file1.txt?rev=1234"
       $httpBackend.expectPOST(url, undefined).respond null
       Dropbox.restore 'file1.txt', '1234'
-      $httpBackend.flush()    
+      $httpBackend.flush()
 
 
   describe 'findByName', ->
@@ -204,7 +204,7 @@ describe 'Dropbox', ->
       url = "#{Dropbox.urls.fileopsCreateFolder}?path=folder1&root=auto"
       $httpBackend.expectPOST(url, undefined).respond null
       Dropbox.mkdir 'folder1'
-      $httpBackend.flush()        
+      $httpBackend.flush()
 
 
   describe 'remove', ->
@@ -213,7 +213,7 @@ describe 'Dropbox', ->
       url = "#{Dropbox.urls.fileopsDelete}?path=dir%2Ffile.ext&root=auto"
       $httpBackend.expectPOST(url, undefined).respond null
       Dropbox.remove 'dir/file.ext'
-      $httpBackend.flush()  
+      $httpBackend.flush()
 
 
   describe 'unlink', ->
@@ -231,7 +231,7 @@ describe 'Dropbox', ->
       url = "#{Dropbox.urls.fileopsDelete}?path=dir%2Ffile.ext&root=auto"
       $httpBackend.expectPOST(url, undefined).respond null
       Dropbox.delete 'dir/file.ext'
-      $httpBackend.flush()  
+      $httpBackend.flush()
 
 
   describe 'copy', ->
@@ -249,7 +249,7 @@ describe 'Dropbox', ->
       url = "#{Dropbox.urls.fileopsMove}?from_path=dir%2Ffile1.ext&root=auto&to_path=dir%2Ffile2.ext"
       $httpBackend.expectPOST(url, undefined).respond null
       Dropbox.move 'dir/file1.ext', 'dir/file2.ext'
-      $httpBackend.flush()      
+      $httpBackend.flush()
 
 
   describe 'reset', ->

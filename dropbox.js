@@ -17,7 +17,7 @@ angular.module('dropbox', [])
 
 
       function ($q, $http, $window, DropboxClientId, DropboxRedirectUri) {
-         
+
 
         /**
          * Credentials
@@ -78,12 +78,12 @@ angular.module('dropbox', [])
 
         function oauthHeader(options) {
           if (!options.headers) { options.headers = {}; }
-          options.headers['Authorization'] = 'Bearer ' + oauth.access_token;      
+          options.headers['Authorization'] = 'Bearer ' + oauth.access_token;
         }
 
         function oauthParams(options) {
           if (!options.params) { options.params = {}; }
-          options.params.access_token = oauth.access_token;      
+          options.params.access_token = oauth.access_token;
         }
 
 
@@ -114,7 +114,7 @@ angular.module('dropbox', [])
         /**
          * HTTP GET Helper
          */
-        
+
         function GET(url, params) {
           return request({
             method: 'GET',
@@ -142,7 +142,7 @@ angular.module('dropbox', [])
          * Configure the authorize popup window
          * Adapted from dropbox-js
          */
-        
+
         function popupSize(popupWidth, popupHeight) {
           var x0, y0, width, height, popupLeft, popupTop;
 
@@ -200,7 +200,7 @@ angular.module('dropbox', [])
          */
 
         return {
-          
+
 
           urls: urls,                       // exposed for testing
 
@@ -216,7 +216,7 @@ angular.module('dropbox', [])
               , redirectUri = DropboxRedirectUri
               , authUrl = urls.authorize
                         + '?client_id=' + DropboxClientId
-                     // + '&state=' + 
+                     // + '&state=' +
                         + '&response_type=token'
                         + '&redirect_uri=' + redirectUri
 
@@ -280,13 +280,13 @@ angular.module('dropbox', [])
           readdir: function (path, params) {
             var deferred = $q.defer();
 
-            function success(stat) { 
+            function success(stat) {
               var entries = stat.contents.map(function (entry) {
                 return entry.path;
               });
-              
+
               console.log('readdir of ' + path, entries);
-              deferred.resolve(); 
+              deferred.resolve();
             }
 
             function failure(fault) { deferred.reject(fault); }
@@ -315,8 +315,8 @@ angular.module('dropbox', [])
 
 
           thumbnailUrl: function (path, params) {
-            return urls.thumbnails 
-                 + path 
+            return urls.thumbnails
+                 + path
                  + '?format=jpeg&size=m&access_token='
                  + oauth.access_token;
           },
@@ -387,7 +387,7 @@ angular.module('dropbox', [])
 
 
           copy: function (from, to) {
-            return POST(urls.fileopsCopy, null, { 
+            return POST(urls.fileopsCopy, null, {
               root: 'auto',
               to_path: to,
               from_path: from
@@ -396,7 +396,7 @@ angular.module('dropbox', [])
 
 
           move: function (from, to) {
-            return POST(urls.fileopsMove, null, { 
+            return POST(urls.fileopsMove, null, {
               root: 'auto',
               to_path: to,
               from_path: from
