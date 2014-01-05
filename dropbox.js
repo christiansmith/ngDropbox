@@ -1,22 +1,26 @@
 'use strict';
 
+
 angular.module('dropbox', [])
 
 
-  .provider('Dropbox', function () {
+  .provider('Dropbox', function DropboxProvider () {
+
+
+    var clientId, redirectUri;
+
+
+    this.config = function (id, uri) {
+      this.clientId    = clientId    = id;
+      this.redirectUri = redirectUri = uri;
+    };
 
 
     this.$get = [
-
-
       '$q',
       '$http',
       '$window',
-      'DropboxClientId',
-      'DropboxRedirectUri',
-
-
-      function ($q, $http, $window, DropboxClientId, DropboxRedirectUri) {
+      function ($q, $http, $window) {
 
 
         /**
@@ -213,9 +217,9 @@ angular.module('dropbox', [])
           authenticate: function () {
             var self = this
               , deferred = $q.defer()
-              , redirectUri = DropboxRedirectUri
+              , redirectUri = redirectUri
               , authUrl = urls.authorize
-                        + '?client_id=' + DropboxClientId
+                        + '?client_id=' + clientId
                      // + '&state=' +
                         + '&response_type=token'
                         + '&redirect_uri=' + redirectUri

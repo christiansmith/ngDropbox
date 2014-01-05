@@ -9,8 +9,6 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-      JASMINE,
-      JASMINE_ADAPTER,
       'bower_components/angular/angular.js',
       'bower_components/angular-mocks/angular-mocks.js',
       'dropbox.js',
@@ -72,4 +70,4 @@ module.exports = function(config) {
   });
 };
 
-    
+

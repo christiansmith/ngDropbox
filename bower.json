@@ -9,9 +9,7 @@
     "karma.conf.js"
   ],
   "devDependencies": {
-    "angular": "~1.0.7",
-    "angular-mocks": "~1.0.7",
-    "angular-unstable": "~1.1.5",
-    "angular-mocks-unstable": "~1.1.5"
+    "angular": "~1.2.4",
+    "angular-mocks": "~1.2.4"
   }
 }

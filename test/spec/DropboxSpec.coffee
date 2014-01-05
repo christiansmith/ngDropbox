@@ -1,17 +1,15 @@
+'use strict'
+
+
 describe 'Dropbox', ->
 
-  {Dropbox,$httpBackend,credentials} = {}
+
+  {DropboxProvider,Dropbox,$httpBackend,credentials} = {}
 
 
   headers =
     'Accept': 'application/json, text/plain, */*'
-    'X-Requested-With': 'XMLHttpRequest'
     'Authorization': 'Bearer g1bb3r1sh'
-
-
-  angular.module('dropbox')
-    .value('DropboxClientId', '1234')
-    .value('DropboxRedirectUri', 'https://SOMEHOST/callback.html')
 
 
   beforeEach module 'dropbox'
@@ -20,7 +18,7 @@ describe 'Dropbox', ->
   beforeEach inject ($injector) ->
     Dropbox      = $injector.get 'Dropbox'
     $httpBackend = $injector.get '$httpBackend'
-    credentials = access_token: 'g1bb3r1sh'
+    credentials  = access_token: 'g1bb3r1sh'
     Dropbox.setCredentials credentials
 
 

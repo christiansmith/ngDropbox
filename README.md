@@ -32,9 +32,9 @@ In your AngularJS app, load the module. Inform your app of the App key and Redir
     // load the module
     angular.module('myApp', ['dropbox'])
 
-      // add your Dropbox credentials
-      .value('DropboxClientId', <APP_KEY>)
-      .value('DropboxRedirectUri', <REDIRECT_URI>)
+      .config(function (DropboxProvider) {
+        DropboxProvider.config(<APP_KEY>, <REDIRECT_URI>);
+      })
 
       // inject the service
       .controller('DropboxCtrl', function ($scope, Dropbox) {
