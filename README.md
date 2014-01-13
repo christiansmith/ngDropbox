@@ -14,7 +14,7 @@ This module is extracted from an AngularJS application. It mostly satisfies the 
 
     $ bower install git@github.com:christiansmith/ngDropbox.git --save
 
-    <script src="components/ngDropbox/dropbox.js"></script>
+    <script src="bower_components/ngDropbox/dropbox.js"></script>
 
 If you don't use Bower, just download `dropbox.js` into your scripts directory.
 

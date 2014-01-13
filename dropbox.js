@@ -224,10 +224,18 @@ angular.module('dropbox', [])
                         + '&redirect_uri=' + redirectUri
 
             function listener(event) {
-              oauth = queryParamsFromUrl(event.data);
-              self.oauth = oauth;
-              deferred.resolve(oauth);
-              console.log('Dropbox', self);
+              var response = queryParamsFromUrl(event.data);
+
+              if (response.access_denied) {
+                deferred.reject(response);
+              }
+
+              else if (response.access_token) {
+                oauth = self.oauth = response;
+                deferred.resolve(oauth);
+              }
+
+              $window.removeEventListener('message', listener, false);
             }
 
             $window.addEventListener('message', listener, false);
