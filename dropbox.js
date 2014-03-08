@@ -297,7 +297,7 @@ angular.module('dropbox', [])
               });
 
               console.log('readdir of ' + path, entries);
-              deferred.resolve();
+              deferred.resolve(entries);
             }
 
             function failure(fault) { deferred.reject(fault); }
