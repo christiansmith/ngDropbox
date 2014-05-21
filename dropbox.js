@@ -120,7 +120,21 @@ angular.module('dropbox', [])
          */
 
         function GET(url, params) {
+          var responseType = 'text';
+          if (params) {
+            if (params.arrayBuffer) {
+              responseType = 'arraybuffer';
+            } else if (params.blob) {
+              responseType = 'blob';
+            } else if (params.buffer) {
+              responseType = 'buffer';
+            } else if (params.binary) {
+              responseType = 'b'; // See the Dropbox.Util.Xhr.setResponseType docs
+            }
+          }
+
           return request({
+            responseType: responseType,
             method: 'GET',
             url: url,
             params: params

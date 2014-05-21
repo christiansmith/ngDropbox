@@ -71,6 +71,11 @@ describe 'Dropbox', ->
       Dropbox.readFile 'directory/name.ext'
       $httpBackend.flush()
 
+    it 'should get the contents of a file as a blob', ->
+      url = "#{Dropbox.urls.getFile}directory/name.ext?blob=true"
+      $httpBackend.expectGET(url, headers).respond null
+      Dropbox.readFile 'directory/name.ext', 'blob' : true
+      $httpBackend.flush()
 
   describe 'writeFile', ->
 
