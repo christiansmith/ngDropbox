@@ -1,6 +1,7 @@
 {
   "name": "ngDropbox",
   "version": "0.0.0",
+  "main": "dropbox.js",
   "ignore": [
     "**/.*",
     "test",
