@@ -12,7 +12,7 @@ This module is extracted from an AngularJS application. It mostly satisfies the 
 
 [Bower](http://bower.io/) is the quickest way to include ngDropbox in your project.
 
-    $ bower install git@github.com:christiansmith/ngDropbox.git --save
+    $ bower install git://github.com/christiansmith/ngDropbox.git --save
 
     <script src="bower_components/ngDropbox/dropbox.js"></script>
 
